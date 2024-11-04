@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "watch-taildwind": "npx tailwindcss -i ./src/styles.css -o ./src/output.css --watch",
+    "watch-tailwindcss": "npx tailwindcss -i ./src/styles.css -o ./src/output.css --watch",
     "generate-api": "rimraf src/generated && openapi-generator-cli generate",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
