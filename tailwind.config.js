@@ -8,20 +8,18 @@ module.exports = {
     extend: {
       colors: {
         'primary-color': '#ffffff',
-        'secondary-color': '#1d2025',
-        'accent-light': '#799496',
-        'accent-color-1': '#a30b37',
-        'accent-color-2': '#d78521',
-        'accent-color-3': '#A259FF',
+        'secondary-color': '#000000',
+        'accent-color-1': '#ffdc94',
         'text-primary': '#ffffff',
-        'text-secondary': '#a2a5aa',
-        'background-primary': '#000000',
-        'background-secondary': '#1d2025',
-        'background-neutral': '#303135',
+        'text-secondary': '#a7a7a7',
+        'text-neutral': '#c8c8c8',
+        'background-primary': '#144675',
+        'background-secondary': '#668eca',
+        'background-neutral': '#141414',
       },
     },
     fontFamily: {
-        'roboto': ["Roboto Mono", 'monospace']
+      'roboto': ["Roboto Mono", 'monospace']
     },
     borderRadius: {
       'none': '0',

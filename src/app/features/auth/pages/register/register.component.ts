@@ -15,7 +15,6 @@ import { ProfileApiService } from '../../../profile/services/profile-api.service
 })
 export default class RegisterComponent {
   username: string = '';
-  email: string = '';
   password: string = '';
 
   constructor(
@@ -26,13 +25,13 @@ export default class RegisterComponent {
   register() {
     this.profileService.register({
       username: this.username,
-      email: this.email,
       password: this.password
     }).then(resp => {
       console.log(resp);
       this.router.navigate(['/home']);
     }).catch(error => {
-      console.log(error);
+      if (typeof error === 'string') alert(error);
+      else alert(error[0].type);
     })
   }
 }

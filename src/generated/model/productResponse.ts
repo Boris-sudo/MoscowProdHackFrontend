@@ -12,7 +12,6 @@
 
 
 export interface ProductResponse { 
-    sum: any | null;
     price: any | null;
     name: any | null;
     quantity: any | null;

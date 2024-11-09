@@ -4,7 +4,9 @@ const routes: Routes = [
   {
     path: "",
     children: [
-      { path: '', loadComponent: () => import('./pages/main/main.component'), pathMatch: "full" },
+      { path: 'same', loadComponent: () => import('./pages/same/same.component'), pathMatch: "full" },
+      { path: 'different', loadComponent: () => import('./pages/different/different.component'), pathMatch: "full" },
+      { path: 'hard', loadComponent: () => import('./pages/hard/hard.component'), pathMatch: "full" },
     ]
   }
 ];

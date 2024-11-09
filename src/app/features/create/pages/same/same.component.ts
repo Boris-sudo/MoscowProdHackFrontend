@@ -1,12 +1,38 @@
 import { Component } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { ProfileApiService } from '../../../profile/services/profile-api.service';
+import { CreateGroupType1Request, CreateGroupType2Request } from '../../../../../generated';
+import { GroupsApiService } from '../../../main/services/groups-api.service';
 
 @Component({
   selector: 'app-same',
   standalone: true,
-  imports: [],
+  imports: [
+    ReactiveFormsModule,
+    RouterLink,
+    FormsModule
+  ],
   templateUrl: './same.component.html',
   styleUrl: './same.component.css'
 })
-export class SameComponent {
+export default class SameComponent {
+  group: CreateGroupType1Request = { title: '', price: 0 }
+  profile;
 
+  constructor(
+    private router: Router,
+    private profileService: ProfileApiService,
+    private groupService: GroupsApiService
+  ) {
+    this.profile = this.profileService.currentUser;
+  }
+
+  create() {
+    this.groupService.createSameGroup(this.group).then(resp => {
+      console.log(resp);
+      const groupId = resp.id;
+      this.router.navigate([`/home/group/${groupId}`])
+    }).catch(error => { console.log(error); })
+  }
 }

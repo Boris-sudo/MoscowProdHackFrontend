@@ -13,9 +13,7 @@
 
 export interface CreateBillRequest { 
     title: any | null;
-    type: any | null;
     group_id: any | null;
-    amount: any | null;
-    date: any | null;
+    type: any | null;
 }
 

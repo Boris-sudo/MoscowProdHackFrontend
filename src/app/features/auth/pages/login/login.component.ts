@@ -14,7 +14,7 @@ import { ProfileApiService } from '../../../profile/services/profile-api.service
   styleUrl: './login.component.css'
 })
 export default class LoginComponent {
-  email: string = '';
+  username: string = '';
   password: string = '';
 
   constructor(
@@ -24,13 +24,13 @@ export default class LoginComponent {
 
   login() {
     this.profileService.login({
-      email: this.email,
+      username: this.username,
       password: this.password
     }).then(resp => {
-      console.log(resp);
       this.router.navigate(['/home'])
     }).catch(error => {
-      console.log(error);
+      if (typeof error === 'string') alert(error);
+      else alert(error[0].type);
     })
   }
 }

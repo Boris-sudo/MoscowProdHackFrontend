@@ -14,5 +14,6 @@
 export interface ProductRequest { 
     name: any | null;
     price: any | null;
+    quantity: any | null;
 }
 

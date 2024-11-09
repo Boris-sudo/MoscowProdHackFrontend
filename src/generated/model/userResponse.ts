@@ -13,6 +13,5 @@
 
 export interface UserResponse { 
     username: any | null;
-    registered_at: any | null;
 }
 

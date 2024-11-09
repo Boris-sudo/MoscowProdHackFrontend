@@ -14,5 +14,6 @@
 export interface GroupResponse { 
     id: any | null;
     title: any | null;
+    type: any | null;
 }
 
