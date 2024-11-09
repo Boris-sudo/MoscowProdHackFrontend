@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CreateGroupType1Request, GroupResponse } from '../../../../../generated';
-import { GroupsApiService } from '../../services/groups-api.service';
+import { GroupResponse } from '../../../../../../../generated';
+import { GroupsApiService } from '../../../../services/groups-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

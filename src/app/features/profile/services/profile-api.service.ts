@@ -1,10 +1,10 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { ApiService } from '../../../core/services/api.service';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, distinctUntilChanged, firstValueFrom, map } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 import { Router } from '@angular/router';
 import { JwtService } from './jwt';
-import { LoginRequest, LoginResponse, RegisterRequest, UserResponse, ValidationError } from '../../../../generated';
+import { LoginRequest, LoginResponse, RegisterRequest, UserResponse } from '../../../../generated';
 
 @Injectable({
   providedIn: 'root'

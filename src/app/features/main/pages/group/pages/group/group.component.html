@@ -3,9 +3,16 @@
     <p class="title">{{group.title}}</p>
 
     <div class="buttons-container">
-      <button class="btn">посмотреть список продуктов</button>
-      <button class="btn">добавить платеж</button>
-      <button class="btn" style="background: var(--accent-color-1); color: black;">оплатить</button>
+      @if (group.type === 'equal') {
+        <button class="btn" style="background: var(--accent-color-1); color: black;">оплатить</button>
+      } @else if (group.type === 'nonequal') {
+        <button class="btn">посмотреть список продуктов</button>
+        <button class="btn" style="background: var(--accent-color-1); color: black;">оплатить</button>
+      } @else {
+        <button class="btn">посмотреть список продуктов</button>
+        <button class="btn">добавить платеж</button>
+        <button class="btn" style="background: var(--accent-color-1); color: black;">оплатить</button>
+      }
     </div>
   </div>
 } @else {

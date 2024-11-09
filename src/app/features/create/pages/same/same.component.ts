@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ProfileApiService } from '../../../profile/services/profile-api.service';
-import { CreateGroupType1Request, CreateGroupType2Request } from '../../../../../generated';
+import { CreateGroupType1Request } from '../../../../../generated';
 import { GroupsApiService } from '../../../main/services/groups-api.service';
 
 @Component({
