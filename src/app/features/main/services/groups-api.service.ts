@@ -35,7 +35,7 @@ export class GroupsApiService {
       const resp =  await firstValueFrom(this.api.apiService.handlerGroupJoinGroupIdPost(groupId));
       return resp;
     } catch (e: any) {
-      throw 'такой группы не существует';
+      throw e.error.detail;
     }
   }
 
@@ -62,6 +62,7 @@ export class GroupsApiService {
     try {
       return await firstValueFrom(this.api.apiService.handlerBillSetProductsGet(dto));
     } catch (e: any) {
+      console.log(e);
       throw e.error.msg;
     }
   }

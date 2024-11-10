@@ -69,6 +69,7 @@ export default class BillComponent {
   }
 
   handleProductQuantityInput(product: ProductResponse, event: any) {
+    console.log(event.target.value, product.quantity);
     event.target.value = String(Math.min(Number(event.target.value), product.quantity));
 
     let found: boolean = false;
@@ -85,6 +86,7 @@ export default class BillComponent {
     // TODO post products
     const setProducts: SetProducts = { products: [] }
     this.productsTaken.forEach(a => setProducts.products.push({ product_id: a.productId, quantity: a.quantity }));
+    console.log(setProducts);
     this.groupService.setProductsToBill(setProducts)
       .then(resp => console.log(resp))
       .catch(e => console.log(e));

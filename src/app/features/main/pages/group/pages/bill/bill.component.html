@@ -4,7 +4,10 @@
       <li class="group-item">
         <div class="info">
           <span class="group-name">{{ product.name }}</span>
-          <span class="group-money">{{ product.price }}</span>
+          <div class="flex flex-row" style="gap: 5px;">
+            <span class="group-money">{{ product.price }}₽</span>
+            <span class="group-money">{{ product.quantity }}</span>
+          </div>
         </div>
 
         <div class="buttons">

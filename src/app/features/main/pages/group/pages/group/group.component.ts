@@ -68,10 +68,11 @@ export default class GroupComponent {
         .then(resp => this.router.navigate([resp]))
         .catch(e => console.log(e));
     } else {
-      this.groupService.createBillPayment({
-        amount: this.amountToPay,
-        bills: []
-      })
+      const req: {amount: number, bills: {bill_id: string}[]} = { amount: this.amountToPay, bills: [] };
+      this.bills.forEach(e => req.bills.push({bill_id: e.id}));
+      this.groupService.createBillPayment(req)
+        .then(resp => this.router.navigate([resp]))
+        .catch(e => console.log(e));
     }
   }
 

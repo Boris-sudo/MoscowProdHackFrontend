@@ -50,7 +50,6 @@ export default class MainComponent implements AfterViewInit {
     }
   }
 
-
   join() {
     this.error = null;
     this.groupService.joinGroupById(this.codes.join(''))
