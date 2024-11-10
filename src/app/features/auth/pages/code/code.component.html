@@ -4,18 +4,21 @@
     <div class="label">
       <p>Code</p>
       <div class="flex flex-row code-input" style="gap: 10px;">
-        <input type="tel" maxlength="1" pattern="[A-Z0-9]" class="form-control">
-        <input type="tel" maxlength="1" pattern="[A-Z0-9]" class="form-control">
-        <input type="tel" maxlength="1" pattern="[A-Z0-9]" class="form-control">
-        <input type="tel" maxlength="1" pattern="[A-Z0-9]" class="form-control">
-        <input type="tel" maxlength="1" pattern="[A-Z0-9]" class="form-control">
-        <input type="tel" maxlength="1" pattern="[A-Z0-9]" class="form-control">
+        <input (input)="inputHandler(1, $event)" type="tel" maxlength="1" pattern="[A-Z0-9]" class="form-control" #inputElement>
+        <input (input)="inputHandler(2, $event)" type="tel" maxlength="1" pattern="[A-Z0-9]" class="form-control" #inputElement>
+        <input (input)="inputHandler(3, $event)" type="tel" maxlength="1" pattern="[A-Z0-9]" class="form-control" #inputElement>
+        <input (input)="inputHandler(4, $event)" type="tel" maxlength="1" pattern="[A-Z0-9]" class="form-control" #inputElement>
+        <input (input)="inputHandler(5, $event)" type="tel" maxlength="1" pattern="[A-Z0-9]" class="form-control" #inputElement>
+        <input (input)="inputHandler(6, $event)" type="tel" maxlength="1" pattern="[A-Z0-9]" class="form-control" #inputElement>
       </div>
     </div>
 
-    <div class="response">
-
-    </div>
+    @if (error) {
+      <div class="error-container">
+        <p>Ошибка</p>
+        <p>{{error}}</p>
+      </div>
+    }
 
     <button (click)="login()" class="solid-button btn">
       <p>Join</p>

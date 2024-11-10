@@ -15,5 +15,9 @@ export interface CreateBillRequest {
     title: any | null;
     group_id: any | null;
     type: any | null;
+    /**
+     * Products
+     */
+    products?: any | null;
 }
 

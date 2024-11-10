@@ -21,6 +21,7 @@ export default class DifferentComponent {
   }
   profile;
   imageUrl: string | ArrayBuffer | null | undefined = null;
+  error: string | null = null;
 
   constructor(
     private router: Router,
@@ -50,10 +51,11 @@ export default class DifferentComponent {
   }
 
   create() {
+    this.error = null;
     this.groupService.createDifferentGroup(this.group).then(resp => {
       console.log(resp);
       const groupId = resp.id;
       this.router.navigate([`/home/group/${ groupId }`])
-    }).catch(error => { console.log(error); })
+    }).catch(error => { this.error=error; console.log(this.error); })
   }
 }

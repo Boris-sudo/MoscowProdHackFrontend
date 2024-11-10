@@ -12,10 +12,7 @@
 
 
 export interface PaymentUrlRequest { 
-    bill_id: any | null;
-    /**
-     * Which products user include
-     */
-    products?: any | null;
+    amount: any | null;
+    bills: any | null;
 }
 

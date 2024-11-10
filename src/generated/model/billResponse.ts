@@ -15,9 +15,6 @@ export interface BillResponse {
     id: any | null;
     title: any | null;
     group_id: any | null;
-    payer_id: any | null;
-    amount: any | null;
     type: any | null;
-    date: any | null;
 }
 

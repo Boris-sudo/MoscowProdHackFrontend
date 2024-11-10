@@ -19,6 +19,7 @@ import { GroupsApiService } from '../../../main/services/groups-api.service';
 export default class SameComponent {
   group: CreateGroupType1Request = { title: '', price: 0 }
   profile;
+  error: string | null = null;
 
   constructor(
     private router: Router,
@@ -29,10 +30,11 @@ export default class SameComponent {
   }
 
   create() {
+    this.error = null;
     this.groupService.createSameGroup(this.group).then(resp => {
       console.log(resp);
       const groupId = resp.id;
       this.router.navigate([`/home/group/${groupId}`])
-    }).catch(error => { console.log(error); })
+    }).catch(error => { this.error=error; console.log(this.error); })
   }
 }

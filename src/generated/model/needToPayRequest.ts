@@ -13,9 +13,5 @@
 
 export interface NeedToPayRequest { 
     bill_id: any | null;
-    /**
-     * Which products user include
-     */
-    products?: any | null;
 }
 

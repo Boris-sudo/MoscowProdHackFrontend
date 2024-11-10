@@ -8,6 +8,22 @@
   padding:         10px;
 }
 
+.error-container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 15px;
+  background: rgba(0,0,0,.3);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+
+  p:nth-child(2) {
+    color: red;
+  }
+}
+
 .content {
   max-width: 500px;
   width:          100%;
@@ -63,6 +79,32 @@
         svg { fill: var(--accent-color-1); }
       }
     }
+
+    select {
+      width: 200px; /* Set width */
+      padding: 10px; /* Add padding */
+      border: 2px solid var(--secondary-color); /* Border color */
+      border-radius: 5px; /* Rounded corners */
+      background-color: #f8f9fa; /* Background color */
+      font-size: 16px; /* Font size */
+      color: #333; /* Text color */
+      appearance: none; /* Remove default styling */
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><polygon points="0,0 10,0 5,5" fill="%23007BFF"/></svg>'); /* Custom arrow */
+      background-repeat: no-repeat; /* Prevent repeating */
+      background-position: right 10px center; /* Position the arrow */
+      background-size: 10px; /* Size of the arrow */
+
+      &:hover {
+        border-color: #0056b3; /* Darker border on hover */
+      }
+
+      &:focus {
+        outline: none; /* Remove default outline */
+        border-color: #0056b3; /* Change border color on focus */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add shadow */
+      }
+    }
+
   }
 }
 

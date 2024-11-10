@@ -34,6 +34,13 @@
       </label>
     </div>
 
+    @if (error) {
+      <div class="error-container">
+        <p>Ошибка</p>
+        <p>{{error}}</p>
+      </div>
+    }
+
     <button (click)="login()" class="solid-button btn">
       <p>Sign In</p>
       <svg width="33" height="11" viewBox="0 0 33 11" fill="none" xmlns="http://www.w3.org/2000/svg">

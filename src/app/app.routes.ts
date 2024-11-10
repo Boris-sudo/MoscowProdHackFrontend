@@ -21,14 +21,14 @@ export const routes: Routes = [
     path: "home",
     loadChildren: () => import("./features/main/main.routes"),
     canActivate: [
-      // () => inject(ProfileApiService).isAuthenticated(),
+      () => inject(ProfileApiService).isAuthenticated(),
     ]
   },
   {
     path: "profile",
     loadChildren: () => import("./features/profile/profile.routes"),
     canActivate: [
-      // () => inject(ProfileApiService).isAuthenticated(),
+      () => inject(ProfileApiService).isAuthenticated(),
     ]
   },
   {

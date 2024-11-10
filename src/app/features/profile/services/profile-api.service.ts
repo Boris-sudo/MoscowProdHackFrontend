@@ -4,16 +4,16 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { Router } from '@angular/router';
 import { JwtService } from './jwt';
-import { LoginRequest, LoginResponse, RegisterRequest, UserResponse } from '../../../../generated';
+import { LoginRequest, LoginResponse, RegisterRequest, SetCardRequest, UserResponse } from '../../../../generated';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileApiService {
-  public currentUser = signal<UserResponse | null> (null);
+  public currentUser = signal<UserResponse | null>(null);
 
-  public isAuthenticated = computed(() => this.currentUser()!==null);
-  public notAuthenticated = computed(() => this.currentUser()===null);
+  public isAuthenticated = computed(() => this.currentUser() !== null);
+  public notAuthenticated = computed(() => this.currentUser() === null);
 
   constructor(
     private http: HttpClient,
@@ -28,7 +28,6 @@ export class ProfileApiService {
       const user_login = dto as LoginRequest;
       return await this.login(user_login);
     } catch (registerError: any) {
-      this.purgeAuth();
       throw registerError.error.detail;
     }
   }
@@ -36,24 +35,31 @@ export class ProfileApiService {
   async login(dto: LoginRequest): Promise<LoginResponse | null> {
     try {
       const resp = await firstValueFrom(this.api.apiService.loginAuthLoginPost(dto));
-      console.log(resp);
       await this.setAuth(resp);
       return resp;
     } catch (loginError: any) {
-      this.purgeAuth();
       throw loginError.error.detail;
     }
   }
 
-  async getProfile(): Promise<UserResponse | string> {
+  async getProfile(): Promise<UserResponse> {
     try {
       if (!this.jwtService.checkTokenSetUp()) this.jwtService.setTokenToApi();
-      const resp = await firstValueFrom(this.api.apiService.getUserMeAuthMeGet());
+      const resp = await firstValueFrom(this.api.apiService.handlerUsersMeGet());
       await this.setAuthUser(resp);
       return resp;
     } catch (profileError: any) {
       this.purgeAuth();
       return profileError.error.detail;
+    }
+  }
+
+  async connectCard(dto: SetCardRequest): Promise<string> {
+    try {
+      return await firstValueFrom(this.api.apiService.handlerUsersSetCardPost(dto));
+    } catch (e: any) {
+      console.log(e);
+      return e.error.detail;
     }
   }
 
