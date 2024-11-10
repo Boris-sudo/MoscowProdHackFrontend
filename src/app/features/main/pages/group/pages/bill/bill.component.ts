@@ -22,7 +22,7 @@ export default class BillComponent {
   billMembers: UserResponse[] = [];
 
   products: ProductResponse[] = [];
-  productsTaken: { productId: number, quantity: number }[] = [];
+  productsTaken: { productId: string, quantity: number }[] = [];
 
   profile;
   isProfileInBill: boolean = false;
