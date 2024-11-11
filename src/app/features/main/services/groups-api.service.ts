@@ -60,7 +60,7 @@ export class GroupsApiService {
 
   async setProductsToBill(dto: SetProducts): Promise<any> {
     try {
-      return await firstValueFrom(this.api.apiService.handlerBillSetProductsGet(dto));
+      return await firstValueFrom(this.api.apiService.handlerBillSetProductsPost(dto));
     } catch (e: any) {
       console.log(e);
       throw e.error.msg;
@@ -202,7 +202,7 @@ export class GroupsApiService {
 
   async createGroupPayment(groupId: string, amount: number): Promise<string> {
     try {
-      const resp = await firstValueFrom(this.api.apiService.handlerGroupDolgsPaymentPost({ id: groupId }));
+      const resp = await firstValueFrom(this.api.apiService.handlerGroupDolgsPaymentPost({ id: groupId, amount: amount }));
       // @ts-ignore
       return resp.url;
     } catch (e: any) {

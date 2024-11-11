@@ -18,6 +18,7 @@ model/createGroupType3Request.ts
 model/createProductRequest.ts
 model/detailResponse.ts
 model/errorResponse.ts
+model/groupDolgPaymentRequest.ts
 model/groupDolgRequest.ts
 model/groupList.ts
 model/groupResponse.ts

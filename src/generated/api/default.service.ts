@@ -37,6 +37,8 @@ import { DetailResponse } from '../model/detailResponse';
 // @ts-ignore
 import { ErrorResponse } from '../model/errorResponse';
 // @ts-ignore
+import { GroupDolgPaymentRequest } from '../model/groupDolgPaymentRequest';
+// @ts-ignore
 import { GroupDolgRequest } from '../model/groupDolgRequest';
 // @ts-ignore
 import { GroupList } from '../model/groupList';
@@ -805,12 +807,12 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public handlerBillSetProductsGet(setProducts: SetProducts, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<DetailResponse>;
-    public handlerBillSetProductsGet(setProducts: SetProducts, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<DetailResponse>>;
-    public handlerBillSetProductsGet(setProducts: SetProducts, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<DetailResponse>>;
-    public handlerBillSetProductsGet(setProducts: SetProducts, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public handlerBillSetProductsPost(setProducts: SetProducts, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<DetailResponse>;
+    public handlerBillSetProductsPost(setProducts: SetProducts, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<DetailResponse>>;
+    public handlerBillSetProductsPost(setProducts: SetProducts, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<DetailResponse>>;
+    public handlerBillSetProductsPost(setProducts: SetProducts, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (setProducts === null || setProducts === undefined) {
-            throw new Error('Required parameter setProducts was null or undefined when calling handlerBillSetProductsGet.');
+            throw new Error('Required parameter setProducts was null or undefined when calling handlerBillSetProductsPost.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -861,7 +863,7 @@ export class DefaultService {
         }
 
         let localVarPath = `/bill/set_products`;
-        return this.httpClient.request<DetailResponse>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<DetailResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 body: setProducts,
@@ -1166,16 +1168,16 @@ export class DefaultService {
 
     /**
      * Handler
-     * @param groupDolgRequest 
+     * @param groupDolgPaymentRequest 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public handlerGroupDolgsPaymentPost(groupDolgRequest: GroupDolgRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<NeedToPay>;
-    public handlerGroupDolgsPaymentPost(groupDolgRequest: GroupDolgRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<NeedToPay>>;
-    public handlerGroupDolgsPaymentPost(groupDolgRequest: GroupDolgRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<NeedToPay>>;
-    public handlerGroupDolgsPaymentPost(groupDolgRequest: GroupDolgRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (groupDolgRequest === null || groupDolgRequest === undefined) {
-            throw new Error('Required parameter groupDolgRequest was null or undefined when calling handlerGroupDolgsPaymentPost.');
+    public handlerGroupDolgsPaymentPost(groupDolgPaymentRequest: GroupDolgPaymentRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<PaymentUrlResponse>;
+    public handlerGroupDolgsPaymentPost(groupDolgPaymentRequest: GroupDolgPaymentRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<PaymentUrlResponse>>;
+    public handlerGroupDolgsPaymentPost(groupDolgPaymentRequest: GroupDolgPaymentRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<PaymentUrlResponse>>;
+    public handlerGroupDolgsPaymentPost(groupDolgPaymentRequest: GroupDolgPaymentRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (groupDolgPaymentRequest === null || groupDolgPaymentRequest === undefined) {
+            throw new Error('Required parameter groupDolgPaymentRequest was null or undefined when calling handlerGroupDolgsPaymentPost.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -1226,10 +1228,10 @@ export class DefaultService {
         }
 
         let localVarPath = `/group/dolgs/payment`;
-        return this.httpClient.request<NeedToPay>('post', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<PaymentUrlResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: groupDolgRequest,
+                body: groupDolgPaymentRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,

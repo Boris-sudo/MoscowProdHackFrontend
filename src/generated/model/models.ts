@@ -8,6 +8,7 @@ export * from './createGroupType3Request';
 export * from './createProductRequest';
 export * from './detailResponse';
 export * from './errorResponse';
+export * from './groupDolgPaymentRequest';
 export * from './groupDolgRequest';
 export * from './groupList';
 export * from './groupResponse';

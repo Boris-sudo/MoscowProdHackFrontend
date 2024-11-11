@@ -65,13 +65,19 @@ export default class GroupComponent {
     // TODO getting pay url
     if (this.group()?.type === 'group') {
       this.groupService.createGroupPayment(this.groupId, this.amountToPay)
-        .then(resp => this.router.navigate([resp]))
+        .then(resp => {
+          console.log(resp);
+          window.location.href = resp;
+        })
         .catch(e => console.log(e));
     } else {
       const req: {amount: number, bills: {bill_id: string}[]} = { amount: this.amountToPay, bills: [] };
       this.bills.forEach(e => req.bills.push({bill_id: e.id}));
       this.groupService.createBillPayment(req)
-        .then(resp => this.router.navigate([resp]))
+        .then(resp => {
+          console.log(resp);
+          window.location.href = resp;
+        })
         .catch(e => console.log(e));
     }
   }
