@@ -15,7 +15,7 @@ export class IntroGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    const user = this.profileService.currentUserSubject.value;
+    const user = this.profileService.currentUser();
     if (user === null)
       return true;
     else {

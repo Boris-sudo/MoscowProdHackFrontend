@@ -21,7 +21,7 @@ html, body {
 body {
   background:  var(--background-primary);
   color:       var(--text-primary);
-  font-family: var(--ff-roboto), sans-serif;
+  font-family: var(--ff-primary), sans-serif;
   overflow-y:  scroll !important;
 }
 

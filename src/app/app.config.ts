@@ -3,9 +3,12 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 
 import { routes } from './app.routes';
+import { ProfileApiService } from './features/profile/services/profile-api.service';
+import { register } from 'swiper/element/bundle';
 
-export function initAuth() {
-  return () => ( null );
+export function initAuth(userService: ProfileApiService) {
+  register();
+  return () => ( userService.getProfile() );
 }
 
 export const appConfig: ApplicationConfig = {
@@ -16,7 +19,7 @@ export const appConfig: ApplicationConfig = {
     {
       provide: APP_INITIALIZER,
       useFactory: initAuth,
-      deps: [],
+      deps: [ProfileApiService],
       multi: true,
     },
   ]
